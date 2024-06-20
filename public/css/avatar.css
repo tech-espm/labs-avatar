@@ -639,7 +639,7 @@ input[type="checkbox"]:checked {
   background-position: center;
 }
 
-input[type="submit"] {
+.botao-padrao, input[type="submit"] {
   display: block;
   margin: 20px auto;
   padding: 10px 20px;
@@ -653,7 +653,7 @@ input[type="submit"] {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-input[type="submit"]:hover {
+.botao-padrao:hover, input[type="submit"]:hover {
   background-color: #841233;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
 }
