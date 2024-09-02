@@ -2,9 +2,9 @@
 <div class="mostrar-mobile">
   <div class="cursos-container">
     <div class="cursos-voltar-espaco">
-      <a href="/" class="cursos-voltar"
+      <a href="<%- root %>/" class="cursos-voltar"
         ><img
-          src="../../public/img/seta-voltar.png"
+          src="<%- staticRoot %>/img/seta-voltar.png"
           style="max-width: 1200px; height: auto"
           alt=""
         />Voltar</a
@@ -12,9 +12,9 @@
     </div>
 
     <div class="cursos-home-espaco">
-      <a href="/" class="cursos-home"
+      <a href="<%- root %>/" class="cursos-home"
         ><img
-          src="../../public/img/icone-home.png"
+          src="<%- staticRoot %>/img/icone-home.png"
           style="max-width: 1200px; height: auto"
           alt=""
         />Home</a
@@ -60,7 +60,7 @@
     </div>
 
 <!-- Script para bolinha -->
-<script src="/public/js/projeto.js"></script>
+<script src="<%- staticRoot %>/js/projeto.js"></script>
 <script>
   function selecionarOpcao(opcao, id_pergunta) {
     const opcoes = opcao.parentNode.querySelectorAll(".opcao");
@@ -125,7 +125,7 @@
     waitSwal();
 
 		try {
-			let response = await fetch("/quest/enviarRespostas", {
+			let response = await fetch("<%- root %>/quest/enviarRespostas", {
 				method: "POST",
 				body: JSON.stringify({
 					ids: ids,

@@ -1,9 +1,9 @@
-﻿const app = require("teem");
-const dotenv = require("dotenv");
+﻿import app = require("teem");
+import dotenv = require("dotenv");
 
 dotenv.config({ encoding: "utf8", path: app.currentDirectoryName() + "/../.env" });
 
-const PORT = process.env.PORT || 3000; 
+const PORT = parseInt(process.env.PORT as any) || 3000; 
 
 app.run({
 	// Configurações de acesso ao banco de dados.
@@ -18,6 +18,7 @@ app.run({
 		password: process.env.mysqlpassword,
 		database: process.env.mysqldatabase
 	},
+	root: process.env.ROOT,
 	port: PORT
 });
 
