@@ -10,7 +10,10 @@
 
 ## Integrantes
 - [Alex Macedo](https://github.com/Alexxmfs)
+- [Antônio](https://github.com/melooczr29)
+- [Bruno Assis](https://github.com/Assyss)
 - [Henrique Sardella](https://github.com/henrique-sdc)
+- [Rodrigo Jouan](https://github.com/RodrigoJouan)
 
 ## Cliente do Projeto
 
