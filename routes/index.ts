@@ -1,9 +1,79 @@
 ﻿import app = require("teem");
+import Usuario = require("../models/usuario");
 
 class IndexRoute {
     public async index(req: app.Request, res: app.Response) {
 		res.render("index/index");
 	};
+
+	public async dashboard(req: app.Request, res: app.Response) {
+		let u = await Usuario.cookie(req);
+		if (!u)
+			res.redirect(app.root + "/login");
+		else
+			res.render("index/dashboard", {
+				layout: "layout-sem-form",
+				titulo: "Dashboard",
+				usuario: u
+			});
+	};
+
+	@app.http.all()
+	public static async login(req: app.Request, res: app.Response) {
+		let u = await Usuario.cookie(req);
+		if (!u) {
+			let mensagem: string = null;
+	
+			if (req.body.email || req.body.senha) {
+				[mensagem, u] = await Usuario.efetuarLogin(req.body.email as string, req.body.senha as string, res);
+				if (mensagem)
+					res.render("index/login", {
+						layout: "layout-externo",
+						mensagem: mensagem
+					});
+				else
+					res.redirect(app.root + "/dashboard");
+			} else {
+				res.render("index/login", {
+					layout: "layout-externo",
+					mensagem: null
+				});
+			}
+		} else {
+			res.redirect(app.root + "/");
+		}
+	}
+
+	public static async acesso(req: app.Request, res: app.Response) {
+		let u = await Usuario.cookie(req);
+		if (!u)
+			res.redirect(app.root + "/login");
+		else
+			res.render("index/acesso", {
+				layout: "layout-sem-form",
+				titulo: "Sem Permissão",
+				usuario: u
+			});
+	}
+
+	public static async perfil(req: app.Request, res: app.Response) {
+		let u = await Usuario.cookie(req);
+		if (!u)
+			res.redirect(app.root + "/login");
+		else
+			res.render("index/perfil", {
+				layout: "layout-form",
+				titulo: "Meu Perfil",
+				usuario: u
+			});
+	}
+
+	public static async logout(req: app.Request, res: app.Response) {
+		let u = await Usuario.cookie(req);
+		if (u)
+			await Usuario.efetuarLogout(u, res);
+		res.redirect(app.root + "/login");
+	}
 };
 
 export = IndexRoute;

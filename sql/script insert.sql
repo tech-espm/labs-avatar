@@ -1,6 +1,3 @@
-INSERT INTO usuario (id_usuario, nome) VALUES
-(1, 'Sistema');
-
 INSERT INTO curso (id_curso, nome) VALUES
 (1, 'CDN');
 
