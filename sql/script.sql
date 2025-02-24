@@ -32,13 +32,13 @@ CREATE TABLE usuario (
 INSERT INTO usuario (email, nome, id_perfil, senha, token, criacao) VALUES ('admin@espm.br', 'Administrador', 1, 'NsSzgX9AXd2G85aiCOrUwAFkiEHrHYljYWpJBCfqOvKr:WD+jsEW/Dswcivs42EZBZREfm+4WaPcZHRPG5LJpD8yr', NULL, NOW());
 
 CREATE TABLE curso (
-  id_curso INT NOT NULL,
+  id_curso INT NOT NULL AUTO_INCREMENT,
   nome VARCHAR(45) NOT NULL,
   PRIMARY KEY (id_curso)
 );
 
 CREATE TABLE persona (
-  id_persona INT NOT NULL,
+  id_persona INT NOT NULL AUTO_INCREMENT,
   nome VARCHAR(45) NOT NULL,
   id_curso INT NOT NULL,
   PRIMARY KEY (id_persona),

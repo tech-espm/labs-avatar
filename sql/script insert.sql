@@ -1,5 +1,5 @@
-INSERT INTO curso (id_curso, nome) VALUES
-(1, 'CDN');
+INSERT INTO curso (nome) VALUES
+('CDN');
 
 INSERT INTO persona (id_persona, id_curso, nome) VALUES
 (1, 1, 'Cientista de Dados'),
