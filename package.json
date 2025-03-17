@@ -4,13 +4,14 @@
   "private": true,
   "scripts": {
     "start": "node src/app",
-	"sass": "sass scss/sb-admin-2.scss public/css/style.min.css --style=compressed"
+    "sass": "sass scss/sb-admin-2.scss public/css/style.min.css --style=compressed"
   },
   "description": "projeto",
   "author": "projeto",
   "main": "src/app.js",
   "dependencies": {
     "dotenv": "16.4.5",
+    "sequelize": "^6.37.6",
     "teem": "0.0.28"
   },
   "devDependencies": {

@@ -117,4 +117,10 @@ export = class Validacao {
 	public static apenasCaracteresNumerosTracos(x: string | null): boolean {
 		return (x ? !regExpSenhaSimplesInvalida.test(x) : false);
 	}
+
+	static isData(data: any): boolean {
+
+        const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
+        return dateRegex.test(data);
+    }
 };

@@ -7,6 +7,7 @@ import intToHex = require("../utils/intToHex");
 import Perfil = require("../enums/perfil");
 import Validacao = require("../utils/validacao");
 
+
 interface Usuario {
 	id_usuario: number;
 	email: string;
