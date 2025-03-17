@@ -1,3 +1,13 @@
+<div class="p-4 text-center">
+	<div class="mb-4"><a href="<%- root %>/"><img style="width: 100%; max-width: 250px;" alt="Avatar" src="<%- staticRoot %>/img/img-error-404.svg" /></a></div>
+	<h1 class="h2 my-4">Oops... 😳</h1>
+	<%=((typeof mensagem === "undefined" || !mensagem) ? "A página que você está tentando acessar não foi encontrada" : mensagem) %> 😢
+	<br/>
+	<br/>
+	<button type="button" class="btn btn-primary" onclick="if (window.history.length > 1) { window.history.back(); } else { window.close() }">Voltar</button>
+</div>
+
+<!--
 <div class="maintenance-block">
   <div class="container">
     <div class="row">
@@ -13,7 +23,7 @@
                 <p class="mt-2 mb-4 text-muted">A página que você está procurando, ainda está em produção!</p>
               </div>
               <a class="btn mb-3 erro-botao" href="../quest/cursos">Voltar para cursos</a>
-              <!-- <button type="button" class="btn mb-3 erro-botao">Voltar para home</button> -->
+              <button type="button" class="btn mb-3 erro-botao d-none">Voltar para home</button>
             </div>
           </div>
         </div>
@@ -21,3 +31,4 @@
     </div>
   </div>
 </div>
+-->
