@@ -16,21 +16,6 @@
 	</div>
 </div>
 
-<% if (!item) { %>
-<div class="row">
-	<div class="col-sm-6">
-		<div class="form-group">
-			<label for="data_criacao">Data de criação</label>
-			<input id="data_criacao" name="data_criacao" class="form-control" type="date" />
-		</div>
-	</div>
-
-	
-</div>
-<% } %>
-
-
-
 <%- contentFor("scripts") %>
 <script type="text/javascript">
 	//<![CDATA[
@@ -40,17 +25,10 @@
 		rules: {
 			nome: {
 				required: true,
-				maxlength: 100
 			},
 			descricao: {
 				required: true,
-				maxlength: 5000
 			},
-			data_criacao: {
-				required: true,
-				date: true
-			},
-			
 		},
 	
 		submitHandler: function (form) {

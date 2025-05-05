@@ -9,7 +9,7 @@
 		order: [[1, "asc"]],
 		deferRender: true,
 		columns: [
-			{ title: "", "class": "col-min", searchable: false, orderable: false, data: "id_usuario", render: function (v, type, row) { return '<a target="_blank" title="Editar" href="<%- root %>/usuario/editar?id_usuario=' + row.id_usuario + '" class="btn btn-sm btn-outline-primary"><i class="fa fa-fw fa-edit"></i></a> <button title="Excluir" type="button" data-excluir="1" class="btn btn-sm btn-outline-danger"><i class="fa fa-fw fa-times"></i></button>'; } },
+			{ title: "", "class": "col-min", searchable: false, orderable: false, data: "id_curso", render: function (v, type, row) { return '<a target="_blank" title="Editar" href="<%- root %>/curso/editar?id_curso=' + row.id_curso + '" class="btn btn-sm btn-outline-primary"><i class="fa fa-fw fa-edit"></i></a> <button title="Excluir" type="button" data-excluir="1" class="btn btn-sm btn-outline-danger"><i class="fa fa-fw fa-times"></i></button>'; } },
 			{ title: "descricao", render: encode, data: "descricao" },
 			{ title: "Nome", render: encode, data: "nome" },
 			{ title: "data_inicio", render: encode, data: "data_inicio" },

@@ -32,7 +32,7 @@ CREATE TABLE usuario (
 INSERT INTO usuario (email, nome, id_perfil, senha, token, criacao) VALUES ('admin@espm.br', 'Administrador', 1, 'NsSzgX9AXd2G85aiCOrUwAFkiEHrHYljYWpJBCfqOvKr:WD+jsEW/Dswcivs42EZBZREfm+4WaPcZHRPG5LJpD8yr', NULL, NOW());
 
 
---DROP TABLE IF EXISTS curso;
+-- DROP TABLE IF EXISTS curso;
 CREATE TABLE curso (
   id_curso INT NOT NULL AUTO_INCREMENT,
   nome VARCHAR(100) NOT NULL,
@@ -42,7 +42,7 @@ CREATE TABLE curso (
   PRIMARY KEY (id_curso)
 );
 
---drop table if exists persona;
+-- drop table if exists persona;
 CREATE TABLE persona (
   id_persona INT NOT NULL AUTO_INCREMENT,
   nome VARCHAR(45) NOT NULL,
@@ -52,9 +52,7 @@ CREATE TABLE persona (
   CONSTRAINT fk_persona_curso1 FOREIGN KEY (id_curso) REFERENCES curso (id_curso) ON DELETE NO ACTION ON UPDATE NO ACTION
 );
 
-
-
---DROP TABLE IF EXISTS pergunta;
+-- DROP TABLE IF EXISTS pergunta;
 CREATE TABLE pergunta (
   id_pergunta INT NOT NULL,
   descricao VARCHAR(500) NOT NULL,
