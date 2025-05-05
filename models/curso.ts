@@ -6,8 +6,8 @@ interface Curso {
     id_curso: number;
     nome: string;
     descricao: string;
-    data_inicio: string;
-    data_fim: string;
+    data_criacao: string;
+    
 }
 
 class Curso {
@@ -15,7 +15,7 @@ class Curso {
         let lista: Curso[] = null;
 
         await app.sql.connect(async (sql) => {
-            lista = await sql.query("select id_curso, nome, descricao, date_format(data_inicio, '%d/%m/%Y') data_inicio, date_format(data_fim, '%d/%m/%Y') data_fim from curso where exclusao is null order by nome asc") as Curso[];
+            lista = await sql.query("select id_curso, nome, descricao, date_format(data_criacao, '%d/%m/%Y') data_criacao, date_format(criacao, '%d/%m/%Y') criacao from curso where exclusao is null order by nome asc") as Curso[];
         });
 
         return (lista || []);
@@ -25,7 +25,7 @@ class Curso {
         let lista: Curso[] = null;
 
         await app.sql.connect(async (sql) => {
-            lista = await sql.query("select id_curso, nome, descricao, date_format(data_inicio, '%d/%m/%Y') data_inicio, date_format(data_fim, '%d/%m/%Y') data_fim from curso where id_curso = ?", [id_curso]) as Curso[];
+            lista = await sql.query("select id_curso, nome, descricao, date_format(data_criacao, '%d/%m/%Y') data_criacao, date_format(criacao, '%d/%m/%Y') criacao from curso where id_curso = ?", [id_curso]) as Curso[];
         });
 
         return ((lista && lista[0]) || null);
@@ -38,7 +38,7 @@ class Curso {
 
         await app.sql.connect(async (sql) => {
             try {
-                await sql.query("insert into curso (nome, descricao, data_inicio, data_fim, criacao) values (?, ?, ?, ?, now())", [curso.nome, curso.descricao, curso.data_inicio, curso.data_fim]);
+                await sql.query("insert into curso (nome, descricao, data_criacao) values (?, ?, ?, now())", [curso.nome, curso.descricao, curso.data_criacao]);
             } catch (e) {
                 throw e;
             }
@@ -53,7 +53,7 @@ class Curso {
             return res;
 
         return await app.sql.connect(async (sql) => {
-            await sql.query("update curso set nome = ?, descricao = ?, data_inicio = ?, data_fim = ? where id_curso = ?", [curso.nome, curso.descricao, curso.data_inicio, curso.data_fim, curso.id_curso]);
+            await sql.query("update curso set nome = ?, descricao = ?, data_criacao = ? where id_curso = ?", [curso.nome, curso.descricao, curso.data_criacao, curso.id_curso]);
 
             return (sql.affectedRows ? null : "Curso não encontrado");
         });
@@ -80,14 +80,14 @@ class Curso {
 
         if (!curso.descricao || !(curso.descricao = curso.descricao.normalize().trim()))
             return "Descrição inválida";
+        
+        curso.data_criacao = DataUtil.converterDataISO(curso.data_criacao);
+        if (!curso.data_criacao)
+            return "Data de criacao inválida";
 
-        if (!Validacao.isData(curso.data_inicio))
-            return "Data de início inválida";
-
-        if (!Validacao.isData(curso.data_fim))
-            return "Data de fim inválida";
-
+        
         return null;
+
     }
 }
 

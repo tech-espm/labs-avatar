@@ -118,9 +118,5 @@ export = class Validacao {
 		return (x ? !regExpSenhaSimplesInvalida.test(x) : false);
 	}
 
-	static isData(data: any): boolean {
-
-        const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
-        return dateRegex.test(data);
-    }
+	
 };

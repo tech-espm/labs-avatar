@@ -20,6 +20,9 @@ class CursoRoute {
             });
     }
 
+
+
+
     public static async editar(req: app.Request, res: app.Response) {
         let u = await Usuario.cookie(req);
         if (!u || !u.admin) {
@@ -43,6 +46,10 @@ class CursoRoute {
         }
     }
 
+
+
+
+    
     public static async listar(req: app.Request, res: app.Response) {
         let u = await Usuario.cookie(req);
         if (!u || !u.admin)
